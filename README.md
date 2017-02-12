@@ -1,7 +1,8 @@
 # Udacity_SDC_P3_Behavioral-Cloning
 
 [//]: # (Image References)
-[image1]: ./images/resizing_and_cropping.png "Resized and crooped image"
+[image1]: ./images/Architecture.PNG "architecture"
+[image2]: ./images/resizing_and_cropping.png "Resized and crooped image"
 
 This is the third project for Udacity Self-Driving Car Engineer Nanodegree. For this project, we need to control a car in a simulator to collect camera images and steering angles, and then using this information to build a model to predict the steering angles based on the recorded camera images. The model learns from the data generated from the way we drive the car, hence the name.
 
@@ -24,7 +25,7 @@ Make sure Opencv is installed before running the script
 ## Model architecture
 The archtecture is a convolutional neural netowrk based on the architecture of VGG net. In order to be able to train the model in a fair amount of time, I started from a smaller network and gradually expand the nodes for each layer and the number of layers until the model can drive around the track successfully. One interesting thing I found is that the number of filter is crucial for the car to make a big turn. The fianl archtecture is shown below:
 
-draw a model
+<img src="./images/Architecture.PNG" width=500/>
 
 It is an eight-layers convolunal networtk. The first part is two 5x5x32 convolutional layers followed by a 2x2 maxpooling layer, and the second part is two 3x3x64 convolutional layers followed by a 2x2 maxpooling layer. The final part is two fully-connected layers. ReLU is the activation function for each layer, and the dropout is used for reducing the overfitting. 
 
@@ -35,7 +36,7 @@ The training data was collected by driving around the track in the designated di
 
 The size of the original camera images are 160x320x3. The images are resized to 96x96x3 and further cropped to 55x96x3 when feeding into the network.
 
-![alt text][image1]
+![][image2]
 
  images the quality describe how you do augmentaion and resampling
 
