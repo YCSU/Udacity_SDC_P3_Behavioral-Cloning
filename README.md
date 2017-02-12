@@ -1,7 +1,9 @@
 # Udacity_SDC_P3_Behavioral-Cloning
-This is the third project for Udacity Self-Driving Car Engineer Nanodegree. For this project, we need to control a car in a simulator to collect camera images and steering angles, and then using this information to build a model to predict the steering angles based on the recorded camera images. The model learns from the data generated from the way we drive the car, hence the name.
 
-show an image
+[//]: # (Image References)
+[image1]: ./images/resizing_and_cropping.png "Resized and crooped image"
+
+This is the third project for Udacity Self-Driving Car Engineer Nanodegree. For this project, we need to control a car in a simulator to collect camera images and steering angles, and then using this information to build a model to predict the steering angles based on the recorded camera images. The model learns from the data generated from the way we drive the car, hence the name.
 
 The projects includes the following files:
 * model.py - this is the file to create and train model. See the comments in the the file for explanation  
@@ -29,13 +31,13 @@ It is an eight-layers convolunal networtk. The first part is two 5x5x32 convolut
 visualization of cnn output
 
 ## Training strategy
-discuss the number of samples and how you get those images the quality. validation set Udacity example
+The training data was collected by driving around the track in the designated direction three laps and one lap in the opposite direction. The number of total training sample is 10512. The data provided by Udacity was used for validation, which has 8036 instances.
 
-The size of the original camera images are 160x320x3. The images are resized to 96*96*3 and further cropped to 55*96*3 before feeding into the network.
+The size of the original camera images are 160x320x3. The images are resized to 96*96*3 and further cropped to 55*96*3 when feeding into the network.
 
-show examples
+![alt text][image1]
 
-describe how you do augmentaion and resampling
+images the quality describe how you do augmentaion and resampling
 
 batch size and epochs and adam
 
