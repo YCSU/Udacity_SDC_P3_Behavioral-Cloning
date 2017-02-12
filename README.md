@@ -26,18 +26,18 @@ The archtecture is a convolutional neural netowrk based on the architecture of V
 
 draw a model
 
-It is an eight-layers convolunal networtk. The first part is two 5x5x32 convolutional layers followed by a 2x2 maxpooling layer, and the second part is two 3x3x32 convolutional layers followed by a 2x2 maxpooling layer. The final part is two fully-connected layers. ReLU is the activation function for each layer, and the dropout is used for reducing the overfitting. 
+It is an eight-layers convolunal networtk. The first part is two 5x5x32 convolutional layers followed by a 2x2 maxpooling layer, and the second part is two 3x3x64 convolutional layers followed by a 2x2 maxpooling layer. The final part is two fully-connected layers. ReLU is the activation function for each layer, and the dropout is used for reducing the overfitting. 
 
 visualization of cnn output
 
 ## Training strategy
-The training data was collected by driving around the track in the designated direction three laps and one lap in the opposite direction. The number of total training sample is 10512. The data provided by Udacity was used for validation, which has 8036 instances.
+The training data was collected by driving around the track in the designated direction for three laps and one lap in the opposite direction. The number of total training sample is 10512. The data provided by Udacity was used for validation, which has 8036 instances.
 
-The size of the original camera images are 160x320x3. The images are resized to 96*96*3 and further cropped to 55*96*3 when feeding into the network.
+The size of the original camera images are 160x320x3. The images are resized to 96x96x3 and further cropped to 55x96x3 when feeding into the network.
 
 ![alt text][image1]
 
-images the quality describe how you do augmentaion and resampling
+ images the quality describe how you do augmentaion and resampling
 
 batch size and epochs and adam
 
