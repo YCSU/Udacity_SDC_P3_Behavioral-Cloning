@@ -6,6 +6,7 @@
 [image3]: ./images/steering_hist.png "steering hist"
 [image4]: ./images/steering_hist_flipped.png "steering hist balanced"
 [image5]: ./images/augmentation.png "augmentated image"
+[image6]: ./images/filter.png "filter example"
 
 This is the third project for Udacity Self-Driving Car Engineer Nanodegree. For this project, we need to control a car in a simulator to collect camera images and steering angles, and then using this information to build a model to predict the steering angles based on the recorded camera images. The model learns from the data generated from the way we drive the car, hence the name.
 
@@ -32,7 +33,9 @@ The archtecture is a convolutional neural netowrk based on the architecture of V
 
 It is an eight-layers convolunal networtk. The first part is two 5x5x32 convolutional layers followed by a 2x2 maxpooling layer, and the second part is two 3x3x64 convolutional layers followed by a 2x2 maxpooling layer. The final part is two fully-connected layers. ReLU is the activation function for each layer, and the dropout is used for reducing the overfitting. 
 
-visualization of cnn output
+Here is an example of the features extracted by the convolutional layers.
+
+![][image6]
 
 ## Training strategy
 The training data was collected by driving around the track in the designated direction for three laps and one lap in the opposite direction. The number of total training sample is 10512. The data provided by Udacity was used for validation, which has 8036 instances.
