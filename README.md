@@ -49,7 +49,7 @@ To fix this issue, we added the images flipped horizontally from the original im
 
 ![][image4]
 
-Moreover, we can see from the above histogram that even we flipped the images to balance the positives and negatives, the small angles near zero are still dominated. This causes the model more likely to predict small steering angle. To alleviate this problem, the data is resampled based on the probability calculated from the inverse of the counts in the histogram.  This is quite helpful for training the car to deal with big turns. This technique somehow reduce the number of the needed training samples, but sometimes causes overfitting for big steering angles. In this case, gathering the right training data is important.
+Moreover, we can see from the above histogram that even we flipped the images to balance the positives and negatives, the small angles near zero still dominates. This causes the model more likely to predict small steering angle. To alleviate this problem, the data is resampled based on the probability calculated from the inverse of the counts in the histogram.  This is quite helpful for training the car to deal with big turns. This technique somehow reduce the number of the needed training samples, but sometimes causes overfitting for big steering angles. In this case, gathering the right training data is important.
 
 ### Image preprocessing 
 The size of the original camera images are 160x320x3. The images are resized to 96x96x3 and further cropped to 55x96x3, as shown below. The pixel values are normlized to [0,1] before feeding into the network.
