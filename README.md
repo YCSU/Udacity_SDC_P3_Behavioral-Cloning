@@ -10,9 +10,9 @@
 
 This is the third project for Udacity Self-Driving Car Engineer Nanodegree. For this project, we need to control a car in a simulator to collect camera images and steering angles, and then using this information to build a model to predict the steering angles based on the recorded camera images. The model learns from the data generated from the way we drive the car, hence the name.
 
-The projects includes the following files:
-* model.py - this is the file to create and train model. See the comments in the the file for explanation  
-* model.h5 - a traned cnn for predicting the steering angle from the camera images 
+The project includes the following files:
+* model.py - this is the file to create and train model. See the comments in the file for explanation  
+* model.h5 - a trained CNN for predicting the steering angle from the camera images 
 * drive.py - for driving the car autonomously in the simulator. Added a function to resize the input images
 * README.md - the file reading now
 * test_recording.mp4 - a video which shows the car driving autonomously by the trained cnn model
@@ -27,11 +27,11 @@ python drive.py model.h5
 Make sure Opencv is installed before running the script
 
 ## Model architecture
-The archtecture is a convolutional neural netowrk based on the architecture of VGG net. In order to be able to train the model in a fair amount of time, I started from a smaller network and gradually expand the nodes for each layer and the number of layers until the model can drive around the track successfully. One interesting thing I found is that the number of filter is crucial for the car to make a big turn. The fianl archtecture is shown below:
+The architecture is a convolutional neural network based on the architecture of VGG net. In order to be able to train the model in a fair amount of time, I started from a smaller network and gradually expand the nodes for each layer and the number of layers until the model can drive around the track successfully. One interesting thing I found is that the number of filter is crucial for the car to make a big turn. The fianl architecture is shown below:
 
 <img src="./images/Architecture.PNG" width=500/>
 
-It is an eight-hidden-layers convolunal networtk. The first part is two 5x5x32 convolutional layers followed by a 2x2 maxpooling layer, and the second part is two 3x3x64 convolutional layers followed by a 2x2 maxpooling layer. The final part is two fully-connected layers. ReLU is the activation function for each layer, and the dropout is used for reducing the overfitting. 
+It is an eight-hidden-layers convolutional network. The first part is two 5x5x32 convolutional layers followed by a 2x2 maxpooling layer, and the second part is two 3x3x64 convolutional layers followed by a 2x2 maxpooling layer. The final part is two fully-connected layers. ReLU is the activation function for each layer, and the dropout is used for reducing the overfitting. 
 
 Here is an example of the features extracted by the convolutional layers.
 
@@ -52,7 +52,7 @@ To fix this issue, we added the images flipped horizontally from the original im
 Moreover, we can see from the above histogram that even we flipped the images to balance the positives and negatives, the small angles near zero still dominates. This causes the model more likely to predict small steering angle. To alleviate this problem, the data is resampled based on the probability calculated from the inverse of the counts in the histogram.  This is quite helpful for training the car to deal with big turns. This technique somehow reduce the number of the needed training samples, but sometimes causes overfitting for big steering angles. In this case, gathering the right training data is important.
 
 ### Image preprocessing 
-The size of the original camera images are 160x320x3. The images are resized to 96x96x3 and further cropped to 55x96x3, as shown below. The pixel values are normlized to [0,1] before feeding into the network.
+The size of the original camera images are 160x320x3. The images are resized to 96x96x3 and further cropped to 55x96x3, as shown below. The pixel values are normalized to [0,1] before feeding into the network.
 
 ![][image2]
 
